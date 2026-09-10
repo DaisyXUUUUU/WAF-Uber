@@ -1,0 +1,30 @@
+{
+  "config": {
+    "duration": 180,
+    "fleet": 8,
+    "delta": 1.0,
+    "max_wait": 8.0,
+    "horizon": 30.0,
+    "scenarios": 3,
+    "weight": 3.0,
+    "search_passes": 2,
+    "candidate_budget": 60,
+    "history_days": 10
+  },
+  "test_seed": 2026,
+  "test_days": 3,
+  "history_seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009
+  ],
+  "data_type": "synthetic",
+  "python_dependencies": "standard library only"
+}

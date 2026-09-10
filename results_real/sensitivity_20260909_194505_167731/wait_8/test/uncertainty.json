@@ -1,0 +1,16 @@
+[
+  {
+    "fleet": 8,
+    "test_days": 3,
+    "mean_daily_change_pp": 3.2603025560772054,
+    "exploratory_day_bootstrap_low_pp": 0.0,
+    "exploratory_day_bootstrap_high_pp": 5.555555555555558
+  },
+  {
+    "fleet": 12,
+    "test_days": 3,
+    "mean_daily_change_pp": 4.631407976478401,
+    "exploratory_day_bootstrap_low_pp": 3.4090909090909114,
+    "exploratory_day_bootstrap_high_pp": 5.5555555555555545
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "selected_weights": {
+    "8": 0,
+    "12": 3
+  },
+  "selected_on_dates": [
+    "2024-01-16",
+    "2024-01-17"
+  ],
+  "config_hash": "dc78b250ade798d9ffd0044e0ce2e152cdd1e0d9bccaec02bd605d3031c31ce3",
+  "data_hash": "bdbba08f7516e49efd443149826cde40895ec4cc3a1654c2bdf4c1ba1ab5e4a0",
+  "code_hash": "2cc91b74f9e5abd6fbf654d6756866dff55b23c16171d04c9eca48d15a17dca0",
+  "validation_summary_sha256": "c4a84d332af5b8963be4748808eeca8302d7aa9bbd7c961e8a34231065e69004"
+}

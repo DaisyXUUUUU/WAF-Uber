@@ -1,0 +1,9 @@
+{
+  "url": "https://d37ci6vzurychx.cloudfront.net/misc/taxi_zone_lookup.csv",
+  "retrieved_utc": "2026-09-09T23:12:07.215120+00:00",
+  "bytes": 12331,
+  "etag": "\"c6064b7c144c716450641f769659d178\"",
+  "sha256": "1a99e105092230f8620f301edcca7f80d3080642ff404d28ed957d3fa222c8ed",
+  "official_page": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+  "dictionary": "https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_hvfhs.pdf"
+}

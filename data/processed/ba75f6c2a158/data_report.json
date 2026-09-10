@@ -1,0 +1,115 @@
+{
+  "created_utc": "2026-09-09T23:12:40.609532+00:00",
+  "processing_signature": "ba75f6c2a15880f14629fe8f13a5efd3cc20ba50ccee6c491f487d7060134314",
+  "source": {
+    "kind": "official_tlc_completed_trips",
+    "download": {
+      "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-01.parquet",
+      "retrieved_utc": "2026-09-09T23:12:28.448780+00:00",
+      "bytes": 472757547,
+      "etag": "\"6fbcb7266198225efbdf85925032c0db-28\"",
+      "sha256": "9897de352aa52cea36b70348cc6721b8d4494327ce39c85f0dba83d86ecaa098",
+      "official_page": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+      "dictionary": "https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_hvfhs.pdf"
+    }
+  },
+  "config": {
+    "month": "2024-01",
+    "zones": [
+      161,
+      162,
+      163,
+      164,
+      170,
+      233
+    ],
+    "start_hour": 17,
+    "duration_minutes": 120,
+    "history_dates": [
+      "2024-01-02",
+      "2024-01-03",
+      "2024-01-04",
+      "2024-01-05",
+      "2024-01-08",
+      "2024-01-09",
+      "2024-01-10",
+      "2024-01-11",
+      "2024-01-12"
+    ],
+    "validation_dates": [
+      "2024-01-16",
+      "2024-01-17"
+    ],
+    "test_dates": [
+      "2024-01-22",
+      "2024-01-23",
+      "2024-01-24"
+    ],
+    "sample_fraction": 0.1,
+    "sampling_seed": 519,
+    "fleet_sizes": [
+      8,
+      12
+    ],
+    "initialization_seeds": [
+      2026,
+      2027
+    ],
+    "weight_grid": [
+      0,
+      3,
+      10
+    ],
+    "horizon_minutes": 30,
+    "scenario_count": 2,
+    "matching_interval_minutes": 1,
+    "max_wait_minutes": 8,
+    "search_passes": 2,
+    "candidate_budget": 20,
+    "minimum_od_observations": 3,
+    "max_requests_per_day": 1500
+  },
+  "filter_audit": {
+    "source_rows_scanned": 19663930,
+    "removed_not_uber": 5231175,
+    "removed_pooled_or_unknown": 733810,
+    "removed_missing_timestamps": 0,
+    "removed_invalid_times": 95108,
+    "removed_outside_closed_area": 13491941,
+    "removed_other_dates": 58620,
+    "duplicate_signature_rows_retained": 0
+  },
+  "travel_training_rows": 10880,
+  "travel_sources": {
+    "observed_od_median": 36
+  },
+  "sampling": "deterministic hash Bernoulli thinning, same fraction for every split",
+  "initial_fleet": "all initially idle; locations sampled from history pickup distribution",
+  "limitations": [
+    "Completed-trip records omit full unmet/cancelled demand.",
+    "10% sample if default config is used; fixed simulated fleet is not actual Uber supply.",
+    "Passenger trip medians proxy empty pickup travel; unobserved OD fallbacks are assumptions.",
+    "Static time table, no congestion feedback, no online/offline drivers.",
+    "Exact timestamp duplicates retained because public records have no unique trip ID."
+  ],
+  "artifact_hashes": {
+    "daily_counts.csv": "3d5f74d4ab61e619d0e4d70f2098d3b30e8cea0f3876f2710ffd5162cb487f89",
+    "initial_distribution.json": "2c6863bc172a001e0ecf901ad94dd954a7de12b6740c664184e59c1cca7a09f0",
+    "requests_2024-01-02.csv": "4735f4d6eeb97241d3025e6aed48c9987bb1e2547c7534f18d645b379156ef76",
+    "requests_2024-01-03.csv": "5de15f4a28ec665f58319beb04aaa5cc44914e3863d959e979c33d84a87600ce",
+    "requests_2024-01-04.csv": "a6fdf2f3eac2102e0f3177961057908d59887186a6837520cca2eb9d973c289b",
+    "requests_2024-01-05.csv": "1ee8efff6433c39ba50d4359339cbed8dadbb6197217bea9df8284f30eb93c66",
+    "requests_2024-01-08.csv": "79ef08f9cae4b6ccd0f1145b7df97fd026d8cb5f5d158f31e1510a363d5714b6",
+    "requests_2024-01-09.csv": "ffd736e717734f020a17aa387eec7b918468fb081c617c2926a0fbc5a4b0de08",
+    "requests_2024-01-10.csv": "fac4118ee0ca4d183c14792863cbfb67cb2f78535481a860ebc9536e63fc20be",
+    "requests_2024-01-11.csv": "e6aa5810e438fef318937e4cf934a0f26b567eb1487610ee64ef53c88e2c0a04",
+    "requests_2024-01-12.csv": "a64b8af5b962311f677868b97a488ca99190a901f5b80ce1edeedea7726a3eb5",
+    "requests_2024-01-16.csv": "02f10862822d2222ed1be70281e7b0d82de951723aecf75ebdf09632ec5a04ac",
+    "requests_2024-01-17.csv": "13c6073a8ab3a46560eed766e383996452dd40c7d893a32331ef57846c80fb76",
+    "requests_2024-01-22.csv": "6c8cd7827be1d91bf90ffc2efc96c572b2fef8e063932dec691fcf24eaa99eec",
+    "requests_2024-01-23.csv": "57be881d9477399996b55678330873c633e44456b76115c00d8dfec4df3e1ee8",
+    "requests_2024-01-24.csv": "547884b864f1f463f7e99c50f16b28357aac2bb1b58b473aad4ac65be70560fc",
+    "selected_zones.csv": "e4b51b17589aeb182cf280e5d305fdb8fd024a2f681338d6ccfc165a4918638e",
+    "travel_times.csv": "ead017af0194eeb2511756a2d9ea2bbabc9cb1baddf2999557494e1a8a8d98d4"
+  }
+}

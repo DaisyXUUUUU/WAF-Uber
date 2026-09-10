@@ -1,0 +1,69 @@
+{
+  "mode": "test",
+  "complete": true,
+  "created_utc": "2026-09-09T23:45:08.043998+00:00",
+  "config": {
+    "month": "2024-01",
+    "zones": [
+      161,
+      162,
+      163,
+      164,
+      170,
+      233
+    ],
+    "start_hour": 17,
+    "duration_minutes": 120,
+    "history_dates": [
+      "2024-01-02",
+      "2024-01-03",
+      "2024-01-04",
+      "2024-01-05",
+      "2024-01-08",
+      "2024-01-09",
+      "2024-01-10",
+      "2024-01-11",
+      "2024-01-12"
+    ],
+    "validation_dates": [
+      "2024-01-16",
+      "2024-01-17"
+    ],
+    "test_dates": [
+      "2024-01-22",
+      "2024-01-23",
+      "2024-01-24"
+    ],
+    "sample_fraction": 0.1,
+    "sampling_seed": 519,
+    "fleet_sizes": [
+      8,
+      12
+    ],
+    "initialization_seeds": [
+      2026,
+      2027
+    ],
+    "weight_grid": [
+      0,
+      3,
+      10
+    ],
+    "horizon_minutes": 30,
+    "scenario_count": 2,
+    "matching_interval_minutes": 1,
+    "max_wait_minutes": 12,
+    "search_passes": 2,
+    "candidate_budget": 20,
+    "minimum_od_observations": 3,
+    "max_requests_per_day": 1500
+  },
+  "config_hash": "dc78b250ade798d9ffd0044e0ce2e152cdd1e0d9bccaec02bd605d3031c31ce3",
+  "code_hash": "2cc91b74f9e5abd6fbf654d6756866dff55b23c16171d04c9eca48d15a17dca0",
+  "sensitivity_code_sha256": "051ba085a8f1cc4b512523b28fc4aca72e7eec588eeba045b61ce2a64583c757",
+  "data_hash": "bdbba08f7516e49efd443149826cde40895ec4cc3a1654c2bdf4c1ba1ab5e4a0",
+  "source_kind": "official_tlc_completed_trips",
+  "shared_prepared_folder": "/Users/XU/Documents/Codex/WAF-Uber/data/processed/ba75f6c2a158",
+  "design": "Exploratory sensitivity added after inspecting primary 8-minute test results. All three conditions reported.",
+  "summary_sha256": "1c4b502cfedf8987de57dd0571699ddd2c9989f19aab6265577fd95c06e8af66"
+}

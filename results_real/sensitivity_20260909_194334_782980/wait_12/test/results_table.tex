@@ -1,0 +1,16 @@
+\begin{table}[htbp]
+\centering
+\small
+\caption{Simulation on sampled TLC Uber trip records. Waiting time is conditional on service.}
+\label{tab:dispatch_results}
+\begin{tabular}{rlrrr}
+\hline
+Fleet & Policy & Served (\%) & Wait (min) & Idle (\%) \\
+\hline
+8 & Baseline & 69.8 & 8.93 & 28.3 \\
+8 & Selected ($\lambda=0$) & 69.8 & 8.93 & 28.3 \\
+12 & Baseline & 89.3 & 8.41 & 38.1 \\
+12 & Selected lookahead & 89.8 & 8.40 & 37.6 \\
+\hline
+\end{tabular}
+\end{table}

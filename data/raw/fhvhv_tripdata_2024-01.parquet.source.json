@@ -1,0 +1,9 @@
+{
+  "url": "https://d37ci6vzurychx.cloudfront.net/trip-data/fhvhv_tripdata_2024-01.parquet",
+  "retrieved_utc": "2026-09-09T23:12:28.448780+00:00",
+  "bytes": 472757547,
+  "etag": "\"6fbcb7266198225efbdf85925032c0db-28\"",
+  "sha256": "9897de352aa52cea36b70348cc6721b8d4494327ce39c85f0dba83d86ecaa098",
+  "official_page": "https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page",
+  "dictionary": "https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_hvfhs.pdf"
+}

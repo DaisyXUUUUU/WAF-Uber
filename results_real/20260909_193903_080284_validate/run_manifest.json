@@ -1,0 +1,74 @@
+{
+  "mode": "validate",
+  "created_utc": "2026-09-09T23:39:03.080416+00:00",
+  "config": {
+    "month": "2024-01",
+    "zones": [
+      161,
+      162,
+      163,
+      164,
+      170,
+      233
+    ],
+    "start_hour": 17,
+    "duration_minutes": 120,
+    "history_dates": [
+      "2024-01-02",
+      "2024-01-03",
+      "2024-01-04",
+      "2024-01-05",
+      "2024-01-08",
+      "2024-01-09",
+      "2024-01-10",
+      "2024-01-11",
+      "2024-01-12"
+    ],
+    "validation_dates": [
+      "2024-01-16",
+      "2024-01-17"
+    ],
+    "test_dates": [
+      "2024-01-22",
+      "2024-01-23",
+      "2024-01-24"
+    ],
+    "sample_fraction": 0.1,
+    "sampling_seed": 519,
+    "fleet_sizes": [
+      8,
+      12
+    ],
+    "initialization_seeds": [
+      2026,
+      2027
+    ],
+    "weight_grid": [
+      0,
+      3,
+      10
+    ],
+    "horizon_minutes": 30,
+    "scenario_count": 2,
+    "matching_interval_minutes": 1,
+    "max_wait_minutes": 8,
+    "search_passes": 2,
+    "candidate_budget": 20,
+    "minimum_od_observations": 3,
+    "max_requests_per_day": 1500
+  },
+  "config_hash": "da6725923d6810001baefb79650ae92574ddee4d5f6058f30e2458db070deb3d",
+  "code_hash": "2cc91b74f9e5abd6fbf654d6756866dff55b23c16171d04c9eca48d15a17dca0",
+  "data_hash": "bdbba08f7516e49efd443149826cde40895ec4cc3a1654c2bdf4c1ba1ab5e4a0",
+  "source_kind": "official_tlc_completed_trips",
+  "python": "3.10.9 (main, Mar  1 2023, 12:20:14) [Clang 14.0.6 ]",
+  "platform": "macOS-26.6.2-arm64-arm-64bit",
+  "versions": {
+    "numpy": "1.24.0",
+    "pandas": "2.3.3",
+    "scipy": "1.15.3"
+  },
+  "note": "Simulation using sampled completed-trip records; not actual Uber service performance.",
+  "complete": true,
+  "summary_sha256": "58250698cad01aa21a323e367a53fa9aa2532adadbca09566f45757ee039275e"
+}

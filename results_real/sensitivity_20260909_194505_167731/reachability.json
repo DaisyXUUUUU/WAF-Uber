@@ -1,0 +1,22 @@
+[
+  {
+    "max_wait_minutes": 8,
+    "od_pairs": 36,
+    "pairs_reachable_with_zero_assignment_delay": 13,
+    "origins_unreachable_from_every_zone": [
+      161
+    ]
+  },
+  {
+    "max_wait_minutes": 10,
+    "od_pairs": 36,
+    "pairs_reachable_with_zero_assignment_delay": 25,
+    "origins_unreachable_from_every_zone": []
+  },
+  {
+    "max_wait_minutes": 12,
+    "od_pairs": 36,
+    "pairs_reachable_with_zero_assignment_delay": 31,
+    "origins_unreachable_from_every_zone": []
+  }
+]

@@ -1,0 +1,158 @@
+2024-01-16 seed=2026 fleet=8 weight=0: served=24/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2026 fleet=8 weight=3: served=24/57 changed=0 mean decision=0.2 ms
+2024-01-16 seed=2026 fleet=8 weight=10: served=25/57 changed=2 mean decision=0.2 ms
+2024-01-16 seed=2027 fleet=8 weight=0: served=22/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2027 fleet=8 weight=3: served=22/57 changed=0 mean decision=0.1 ms
+2024-01-16 seed=2027 fleet=8 weight=10: served=23/57 changed=2 mean decision=0.2 ms
+2024-01-17 seed=2026 fleet=8 weight=0: served=29/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2026 fleet=8 weight=3: served=35/103 changed=3 mean decision=0.2 ms
+2024-01-17 seed=2026 fleet=8 weight=10: served=35/103 changed=3 mean decision=0.2 ms
+2024-01-17 seed=2027 fleet=8 weight=0: served=30/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2027 fleet=8 weight=3: served=31/103 changed=1 mean decision=0.2 ms
+2024-01-17 seed=2027 fleet=8 weight=10: served=35/103 changed=1 mean decision=0.2 ms
+2024-01-16 seed=2026 fleet=12 weight=0: served=27/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2026 fleet=12 weight=3: served=27/57 changed=2 mean decision=0.3 ms
+2024-01-16 seed=2026 fleet=12 weight=10: served=28/57 changed=4 mean decision=0.3 ms
+2024-01-16 seed=2027 fleet=12 weight=0: served=26/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2027 fleet=12 weight=3: served=26/57 changed=0 mean decision=0.3 ms
+2024-01-16 seed=2027 fleet=12 weight=10: served=27/57 changed=2 mean decision=0.3 ms
+2024-01-17 seed=2026 fleet=12 weight=0: served=40/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2026 fleet=12 weight=3: served=42/103 changed=2 mean decision=0.4 ms
+2024-01-17 seed=2026 fleet=12 weight=10: served=42/103 changed=2 mean decision=0.4 ms
+2024-01-17 seed=2027 fleet=12 weight=0: served=40/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2027 fleet=12 weight=3: served=41/103 changed=2 mean decision=0.4 ms
+2024-01-17 seed=2027 fleet=12 weight=10: served=42/103 changed=4 mean decision=0.4 ms
+WAIT=8: frozen weights {'8': 10, '12': 10}
+2024-01-16 seed=2026 fleet=8 weight=0: served=44/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2026 fleet=8 weight=3: served=44/57 changed=1 mean decision=0.4 ms
+2024-01-16 seed=2026 fleet=8 weight=10: served=44/57 changed=1 mean decision=0.4 ms
+2024-01-16 seed=2027 fleet=8 weight=0: served=44/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2027 fleet=8 weight=3: served=44/57 changed=0 mean decision=0.4 ms
+2024-01-16 seed=2027 fleet=8 weight=10: served=44/57 changed=1 mean decision=0.4 ms
+2024-01-17 seed=2026 fleet=8 weight=0: served=56/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2026 fleet=8 weight=3: served=56/103 changed=1 mean decision=0.5 ms
+2024-01-17 seed=2026 fleet=8 weight=10: served=56/103 changed=1 mean decision=0.5 ms
+2024-01-17 seed=2027 fleet=8 weight=0: served=55/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2027 fleet=8 weight=3: served=55/103 changed=0 mean decision=0.4 ms
+2024-01-17 seed=2027 fleet=8 weight=10: served=55/103 changed=0 mean decision=0.4 ms
+2024-01-16 seed=2026 fleet=12 weight=0: served=55/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2026 fleet=12 weight=3: served=55/57 changed=0 mean decision=1.2 ms
+2024-01-16 seed=2026 fleet=12 weight=10: served=55/57 changed=2 mean decision=1.2 ms
+2024-01-16 seed=2027 fleet=12 weight=0: served=55/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2027 fleet=12 weight=3: served=55/57 changed=0 mean decision=1.2 ms
+2024-01-16 seed=2027 fleet=12 weight=10: served=55/57 changed=0 mean decision=1.2 ms
+2024-01-17 seed=2026 fleet=12 weight=0: served=76/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2026 fleet=12 weight=3: served=74/103 changed=1 mean decision=0.7 ms
+2024-01-17 seed=2026 fleet=12 weight=10: served=76/103 changed=3 mean decision=0.7 ms
+2024-01-17 seed=2027 fleet=12 weight=0: served=76/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2027 fleet=12 weight=3: served=76/103 changed=1 mean decision=0.7 ms
+2024-01-17 seed=2027 fleet=12 weight=10: served=76/103 changed=3 mean decision=0.7 ms
+WAIT=10: frozen weights {'8': 0, '12': 0}
+2024-01-16 seed=2026 fleet=8 weight=0: served=47/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2026 fleet=8 weight=3: served=47/57 changed=0 mean decision=0.7 ms
+2024-01-16 seed=2026 fleet=8 weight=10: served=47/57 changed=1 mean decision=0.6 ms
+2024-01-16 seed=2027 fleet=8 weight=0: served=47/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2027 fleet=8 weight=3: served=47/57 changed=0 mean decision=0.6 ms
+2024-01-16 seed=2027 fleet=8 weight=10: served=47/57 changed=1 mean decision=0.6 ms
+2024-01-17 seed=2026 fleet=8 weight=0: served=60/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2026 fleet=8 weight=3: served=60/103 changed=0 mean decision=0.5 ms
+2024-01-17 seed=2026 fleet=8 weight=10: served=60/103 changed=0 mean decision=0.5 ms
+2024-01-17 seed=2027 fleet=8 weight=0: served=59/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2027 fleet=8 weight=3: served=59/103 changed=0 mean decision=0.5 ms
+2024-01-17 seed=2027 fleet=8 weight=10: served=59/103 changed=0 mean decision=0.5 ms
+2024-01-16 seed=2026 fleet=12 weight=0: served=55/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2026 fleet=12 weight=3: served=55/57 changed=0 mean decision=1.5 ms
+2024-01-16 seed=2026 fleet=12 weight=10: served=55/57 changed=0 mean decision=1.6 ms
+2024-01-16 seed=2027 fleet=12 weight=0: served=55/57 changed=0 mean decision=0.0 ms
+2024-01-16 seed=2027 fleet=12 weight=3: served=55/57 changed=0 mean decision=1.6 ms
+2024-01-16 seed=2027 fleet=12 weight=10: served=55/57 changed=0 mean decision=1.6 ms
+2024-01-17 seed=2026 fleet=12 weight=0: served=79/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2026 fleet=12 weight=3: served=79/103 changed=0 mean decision=1.0 ms
+2024-01-17 seed=2026 fleet=12 weight=10: served=79/103 changed=0 mean decision=0.9 ms
+2024-01-17 seed=2027 fleet=12 weight=0: served=79/103 changed=0 mean decision=0.0 ms
+2024-01-17 seed=2027 fleet=12 weight=3: served=80/103 changed=1 mean decision=0.9 ms
+2024-01-17 seed=2027 fleet=12 weight=10: served=80/103 changed=1 mean decision=0.9 ms
+WAIT=12: frozen weights {'8': 0, '12': 3}
+2024-01-22 seed=2026 fleet=8 weight=0: served=19/44 changed=0 mean decision=0.0 ms
+2024-01-22 seed=2026 fleet=8 weight=10: served=19/44 changed=1 mean decision=0.1 ms
+2024-01-22 seed=2027 fleet=8 weight=0: served=21/44 changed=0 mean decision=0.0 ms
+2024-01-22 seed=2027 fleet=8 weight=10: served=21/44 changed=1 mean decision=0.2 ms
+2024-01-23 seed=2026 fleet=8 weight=0: served=14/71 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2026 fleet=8 weight=10: served=19/71 changed=2 mean decision=0.2 ms
+2024-01-23 seed=2027 fleet=8 weight=0: served=19/71 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2027 fleet=8 weight=10: served=20/71 changed=2 mean decision=0.2 ms
+2024-01-24 seed=2026 fleet=8 weight=0: served=18/72 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2026 fleet=8 weight=10: served=21/72 changed=3 mean decision=0.2 ms
+2024-01-24 seed=2027 fleet=8 weight=0: served=24/72 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2027 fleet=8 weight=10: served=29/72 changed=4 mean decision=0.2 ms
+2024-01-22 seed=2026 fleet=12 weight=0: served=23/44 changed=0 mean decision=0.0 ms
+2024-01-22 seed=2026 fleet=12 weight=10: served=25/44 changed=3 mean decision=0.3 ms
+2024-01-22 seed=2027 fleet=12 weight=0: served=26/44 changed=0 mean decision=0.0 ms
+2024-01-22 seed=2027 fleet=12 weight=10: served=27/44 changed=2 mean decision=0.3 ms
+2024-01-23 seed=2026 fleet=12 weight=0: served=21/71 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2026 fleet=12 weight=10: served=24/71 changed=3 mean decision=0.3 ms
+2024-01-23 seed=2027 fleet=12 weight=0: served=26/71 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2027 fleet=12 weight=10: served=30/71 changed=2 mean decision=0.3 ms
+2024-01-24 seed=2026 fleet=12 weight=0: served=27/72 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2026 fleet=12 weight=10: served=32/72 changed=4 mean decision=0.3 ms
+2024-01-24 seed=2027 fleet=12 weight=0: served=33/72 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2027 fleet=12 weight=10: served=36/72 changed=4 mean decision=0.4 ms
+ fleet             policy  weight  service_rate  mean_wait_min  idle_share  passenger_share  mean_decision_ms
+     8           Baseline       0      0.307487       6.983841    0.695788         0.176282          0.012987
+     8 Selected lookahead      10      0.344920       7.015116    0.658547         0.197367          0.173392
+    12           Baseline       0      0.417112       6.899893    0.718736         0.166387          0.017165
+    12 Selected lookahead      10      0.465241       6.937213    0.687126         0.184467          0.333684
+LaTeX table and paired results saved in /Users/XU/Documents/Codex/WAF-Uber/results_real/sensitivity_20260909_194334_782980/wait_8/test
+2024-01-22 seed=2026 fleet=8 weight=0: served=30/44 changed=0 mean decision=0.0 ms
+2024-01-22 seed=2027 fleet=8 weight=0: served=31/44 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2026 fleet=8 weight=0: served=45/71 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2027 fleet=8 weight=0: served=45/71 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2026 fleet=8 weight=0: served=44/72 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2027 fleet=8 weight=0: served=46/72 changed=0 mean decision=0.0 ms
+2024-01-22 seed=2026 fleet=12 weight=0: served=36/44 changed=0 mean decision=0.0 ms
+2024-01-22 seed=2027 fleet=12 weight=0: served=37/44 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2026 fleet=12 weight=0: served=58/71 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2027 fleet=12 weight=0: served=59/71 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2026 fleet=12 weight=0: served=62/72 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2027 fleet=12 weight=0: served=61/72 changed=0 mean decision=0.0 ms
+ fleet             policy  weight  service_rate  mean_wait_min  idle_share  passenger_share  mean_decision_ms
+     8           Baseline       0      0.644385       7.905982    0.349579         0.350457          0.009341
+     8 Selected lookahead       0      0.644385       7.905982    0.349579         0.350457          0.009341
+    12           Baseline       0      0.836898       7.853195    0.431936         0.309984          0.011456
+    12 Selected lookahead       0      0.836898       7.853195    0.431936         0.309984          0.011456
+LaTeX table and paired results saved in /Users/XU/Documents/Codex/WAF-Uber/results_real/sensitivity_20260909_194334_782980/wait_10/test
+2024-01-22 seed=2026 fleet=8 weight=0: served=34/44 changed=0 mean decision=0.0 ms
+2024-01-22 seed=2027 fleet=8 weight=0: served=35/44 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2026 fleet=8 weight=0: served=46/71 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2027 fleet=8 weight=0: served=46/71 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2026 fleet=8 weight=0: served=50/72 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2027 fleet=8 weight=0: served=50/72 changed=0 mean decision=0.0 ms
+2024-01-22 seed=2026 fleet=12 weight=0: served=39/44 changed=0 mean decision=0.0 ms
+2024-01-22 seed=2026 fleet=12 weight=3: served=40/44 changed=2 mean decision=1.5 ms
+2024-01-22 seed=2027 fleet=12 weight=0: served=40/44 changed=0 mean decision=0.0 ms
+2024-01-22 seed=2027 fleet=12 weight=3: served=41/44 changed=1 mean decision=1.5 ms
+2024-01-23 seed=2026 fleet=12 weight=0: served=61/71 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2026 fleet=12 weight=3: served=61/71 changed=0 mean decision=1.1 ms
+2024-01-23 seed=2027 fleet=12 weight=0: served=61/71 changed=0 mean decision=0.0 ms
+2024-01-23 seed=2027 fleet=12 weight=3: served=61/71 changed=0 mean decision=1.1 ms
+2024-01-24 seed=2026 fleet=12 weight=0: served=66/72 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2026 fleet=12 weight=3: served=66/72 changed=0 mean decision=0.9 ms
+2024-01-24 seed=2027 fleet=12 weight=0: served=67/72 changed=0 mean decision=0.0 ms
+2024-01-24 seed=2027 fleet=12 weight=3: served=67/72 changed=0 mean decision=0.8 ms
+ fleet             policy  weight  service_rate  mean_wait_min  idle_share  passenger_share  mean_decision_ms
+     8           Baseline       0      0.697861       8.933142    0.283277         0.375022          0.009159
+     8 Selected lookahead       0      0.697861       8.933142    0.283277         0.375022          0.009159
+    12           Baseline       0      0.893048       8.413373    0.380591         0.329272          0.010855
+    12 Selected lookahead       3      0.898396       8.404365    0.376156         0.332129          1.086465
+LaTeX table and paired results saved in /Users/XU/Documents/Codex/WAF-Uber/results_real/sensitivity_20260909_194334_782980/wait_12/test
+
+ALL CONDITIONS (including zero/negative changes):
+ max_wait_minutes  fleet  selected_weight  baseline_service_rate  lookahead_service_rate  service_gain_pp  wait_change_seconds  idle_change_pp
+                8      8             10.0               0.307487                0.344920         3.743316             1.876542       -3.724103
+                8     12             10.0               0.417112                0.465241         4.812834             2.239169       -3.161073
+               10      8              0.0               0.644385                0.644385         0.000000             0.000000        0.000000
+               10     12              0.0               0.836898                0.836898         0.000000             0.000000        0.000000
+               12      8              0.0               0.697861                0.697861         0.000000             0.000000        0.000000
+               12     12              3.0               0.893048                0.898396         0.534759            -0.540490       -0.443480
+
+Outputs: /Users/XU/Documents/Codex/WAF-Uber/results_real/sensitivity_20260909_194334_782980

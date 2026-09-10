@@ -1,0 +1,16 @@
+{
+  "config_hash": "da6725923d6810001baefb79650ae92574ddee4d5f6058f30e2458db070deb3d",
+  "code_hash": "2cc91b74f9e5abd6fbf654d6756866dff55b23c16171d04c9eca48d15a17dca0",
+  "data_hash": "bdbba08f7516e49efd443149826cde40895ec4cc3a1654c2bdf4c1ba1ab5e4a0",
+  "selected_weights": {
+    "8": 10,
+    "12": 10
+  },
+  "validation_summary_sha256": "58250698cad01aa21a323e367a53fa9aa2532adadbca09566f45757ee039275e",
+  "rule": "Maximize pooled validation service rate; tie: smaller served-weighted mean wait, then smaller weight.",
+  "selected_on_dates": [
+    "2024-01-16",
+    "2024-01-17"
+  ],
+  "created_utc": "2026-09-09T23:39:03.712214+00:00"
+}
