@@ -89,7 +89,6 @@ The original monthly Parquet is stored with **Git LFS**. After cloning, use `git
 | `data/raw/` | Official source files and provenance |
 | `data/processed/` | Retained requests, historical estimates, and audit reports |
 | `results_real/` | Validation selections, test metrics, and detailed logs |
-| `README_REAL_CN.md` | Detailed Chinese execution guide |
 | `README_SYNTHETIC_CN.md` | Archived Chinese synthetic-demo instructions |
 | `VERIFICATION_REAL.md` | Historical verification record from initial delivery |
 
