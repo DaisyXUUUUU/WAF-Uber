@@ -1,6 +1,8 @@
 # Verification record
 
-Code delivered on 2026-09-09.
+Historical record of the initial code delivery on 2026-09-09.
+
+This record predates the subsequently completed TLC-data experiments. Its statements about unavailable data and packages describe that initial environment only. See README.md and the archived results_real/ runs for the completed study.
 
 - Original simulator: 8 tests passed.
 - Real-data pipeline: 5 tests passed; 1 optional Parquet test skipped because pyarrow is unavailable in the execution environment.

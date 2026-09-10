@@ -1,119 +1,100 @@
-# v2：增加诊断，不改变派单规则或参数
+# WAF-Uber: Dynamic Driver–Request Matching
 
-运行 `python simulator.py --self-test`，然后 `python simulator.py`。默认输出到 `results_v2`，避免覆盖旧结果。
+A small, reproducible study of whether historical demand can improve ride dispatch decisions. We compare pickup-time batch matching with a scenario-based lookahead heuristic using recorded NYC Uber requests and a simulated fixed fleet.
 
-新增 `decisions_day*_lookahead.csv`，逐轮报告评估的候选方案数、与同一状态下基线的未来计数差异、最终是否改变匹配。它只覆盖本地搜索实际检查的司机替换/交换，不代表枚举所有可行匹配。baseline 和 weight=0 跳过前瞻搜索，因此其候选计数字段为 0，并不表示没有候选方案。
+**These are real-trip-driven simulation results, not measurements of Uber’s actual service rate or a reconstruction of its dispatch system.**
 
-新增逐单过期观察分类：记录订单在过期前所有被观察的匹配轮中，是否有空闲司机、是否存在可行接驾。它是仿真轨迹的描述，不能解释为唯一因果归因。存在空闲但不可达的类别包含位置、已等待时间、固定行程表和匹配间隔的共同影响。
+## Research question and methods
 
-本次默认运行：三天分别有 25、26、32 轮评估过替代方案，其中 2、1、1 轮未来计数不同，实际改变匹配均为 0。过期订单中，在每个观察时刻都有空闲司机却无可行接驾的数量为 64/65、61/64、49/66。
+Can dispatch improve future service opportunities by considering both where assigned drivers finish their trips and where unassigned drivers remain?
 
-v2 的服务、等待、车辆时间和结束时刻已与 v1 输出逐项比较，相同；8 项模型检查通过，逐单诊断计数之和也已核对。运行耗时包含新增诊断开销。
+- **Baseline:** maximize the number of feasible current matches, then minimize total pickup time.
+- **Lookahead:** start from the baseline and evaluate driver substitutions and two-order swaps. Minimize current pickup time minus a weighted estimate of future feasible matches, using two historical demand scenarios over the next 30 minutes.
+- **Common rules:** match every minute; each driver serves one trip at a time; total request-to-pickup waiting must meet the waiting limit. Unassigned drivers wait in place. There is no pooling, proactive relocation, pricing, or driver entry/exit.
 
-请发回 `results_v2/summary.csv`、`results_v2/config.json`，需要深查时再提供对应的 `decisions_*.csv` 和 `trips_*.csv`。
+The search keeps the baseline’s selected current request subset and considers at most 20 alternatives over two passes. Future evaluation includes idle drivers and drivers released after trip completion, counting at most one subsequent request per driver. It is a limited heuristic, not a globally optimal dispatch policy or a reproduction of a published reinforcement-learning model.
 
----
+## Data and evaluation design
 
-# Uber Q3 最小模拟器
+Source: [NYC TLC trip records](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page), January 2024 High Volume FHV data. See the [official field dictionary](https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_hvfhs.pdf).
 
-本项目用于验证模型与实现。所有订单均为合成数据，不能作为真实 Uber 或出租车市场的实证结果。参数只是演示默认值，未经过验证集选择。不保证前瞻优于基线。
-
-## 运行
-
-需要 Python 3.10 或更新版本。不需要 pip 安装任何依赖。
-
-1. 将整个文件夹解压，用 VS Code 打开该文件夹。
-2. 打开 VS Code 的终端，运行：
-
-```sh
-python simulator.py --self-test
-python simulator.py
-```
-
-macOS/Linux 如果 `python` 不存在，改用 `python3`。Windows 也可用 `py`。
-
-第一条应显示 8 项测试通过以及 `OK`。第二条运行 3 个合成测试日，每日 180 分钟，两种策略。运行结束后，将 `results_v2/summary.csv` 和 `results_v2/config.json` 发回研究助理；遇到错误请复制完整报错。
-
-```sh
-# 可选：零权重一致性检查（与默认输出分开保存）
-python simulator.py --weight 0 --out results_zero_weight
-```
-
-不要反复调节参数、只挑前瞻获胜的输出作为报告结果。正式实验需要独立的历史期、验证期和测试期。
-
-## 文件
-
-- `simulator.py`：完整程序，包含模型、两个策略、合成数据和检查。
-- `example_results_v2/`：交付前在研究助理环境运行的演示输出，可用于核对；运行耗时因电脑而异。
-- `results_v2/summary.csv`：你运行后生成的每个测试日、每种策略的结果。
-- `results_v2/config.json`：本次设置与随机种子。
-- `results_v2/requests_day*.csv`：合成测试请求。
-- `results_v2/trips_day*_{baseline,lookahead}.csv`：逐单分配、接驾、完单和过期记录。
-
-## 模型与代码的对应
-
-| 模型部分 | 代码 |
+| Item | Setting |
 | --- | --- |
-| 订单、司机状态 | `Request`, `Driver` |
-| 区域行程时间 | `Travel.minutes` |
-| 最大数量、最小接驾成本的匹配 | `min_cost_maximum_matching` |
-| 历史场景抽取 | `HistoricalScenarios.at` |
-| 原地保留与完单释放运力的辅助计分 | `future_capacity` |
-| 当前方案评分和局部搜索 | `choose_action` |
-| 订单到达、过期、车辆释放、指标 | `simulate` |
+| Records | Uber (`HV0003`), both shared flags equal to `N` |
+| Area | Both endpoints in Manhattan zones 161, 162, 163, 164, 170, 233 |
+| Request window | 17:00–19:00, New York local time |
+| Sampling | Reproducible approximately 10% sample |
+| Historical period | Nine weekdays, January 2–12 |
+| Validation | January 16–17 |
+| Test | January 22–24 |
+| Simulated fleets | 8 and 12 drivers; two initializations per day |
+| Weight selection | 0, 3, or 10; selected on validation and fixed for testing |
+| Primary waiting limit | 8 minutes |
 
-车辆忙碌时，`Driver.zone` 保存其计划目的地，`available_at` 保存完单时间；它不是当前 GPS 位置。只有已经空闲的车辆才会参与当前匹配。
+Historical OD median passenger-trip times approximate both trip and pickup travel. These estimates are fixed before testing; observed test completion times do not determine simulated driver availability. Policies use identical requests and initial locations. Source metadata, checksums, filtering counts, and travel-table provenance are saved with the data.
 
-## 两种策略
+## Recorded results
 
-**baseline**：在可行匹配中先使匹配数量最多，再使总接驾时间最短。使用精确最小费用最大流实现，非逐单最近司机贪心。它借鉴 Qin et al. (2020) 描述的批量匹配基线，但将距离改成时间，使用本报告约束，并未复现其 RL 算法。
+The primary test pools three test days and two initializations per fleet. Waiting time is measured among served requests.
 
-**lookahead**：从基线方案出发，减少 `总接驾时间 - weight × 场景平均下一次服务数量`。使用未派司机替换已派司机，或交换两个已匹配订单的司机。保持当前匹配数量和选中的订单集合不变。默认最多 2 轮改进、每个决策时刻最多评价 60 个候选方案。它不是全局最优求解。
+| Fleet | Baseline service rate | Lookahead service rate | Gain (percentage points) | Mean wait change |
+| --- | ---: | ---: | ---: | ---: |
+| 8 | 30.75% | 34.49% | +3.74 | +1.88 seconds |
+| 12 | 41.71% | 46.52% | +4.81 | +2.24 seconds |
 
-辅助计分纳入全部司机：未派司机从现在在原地可用；新派司机在本轮完单后可用；此前已忙司机在原计划完单后可用。每名司机在每个场景中最多接下一单，每个潜在订单最多计一次。不得在潜在请求出现前出发，也要遵守匹配时钟与等待上限。对同一决策时刻的所有候选匹配使用相同场景，消除场景抽样差异。
+Both fleets selected weight 10. The source table is [comparison.csv](results_real/20260909_194042_679086_test/comparison.csv).
 
-## 已检查的关键行为
+An **exploratory sensitivity analysis added after inspecting the primary results** keeps requests, travel estimates, and initializations fixed while repeating validation and testing at waiting limits of 8, 10, and 12 minutes. At 10 minutes, both fleets select weight zero and reproduce the baseline. At 12 minutes, the gains are zero for 8 drivers and 0.53 percentage points for 12 drivers. See [all sensitivity results](results_real/sensitivity_20260909_194334_782980/sensitivity_effects.csv).
 
-1. 基线求解器在 60 个随机小实例上与穷举最优值一致。
-2. 两司机、一订单的手工场景中，基线派接驾较近的 A，前瞻可派 B；同时检验保留与释放运力。
-3. 多名司机不会重复计入同一个潜在订单。
-4. 不允许提前出发服务尚未到达的请求。
-5. 完单时间、跨测试终点的服务计数、固定窗口时间占比正确。
-6. 过期前处理及恰好在接驾截止时刻接到乘客的边界正确。
-7. `weight=0` 时两策略逐单结果完全一致。
-8. 忙碌司机不会重复接当前新订单。
+The benefit is therefore conditional on the setting. Three test days are insufficient for strong general claims; the sensitivity analysis reuses those days and is not independent confirmation.
 
-## 默认参数
+## Reproduce the experiments
 
-| 参数 | 默认值 | 单位/含义 |
-| --- | --- | --- |
-| 测试窗口 | 180 | 分钟 |
-| 测试日数 | 3 | 合成日 |
-| 车队 | 8 | 司机 |
-| 匹配间隔 | 1 | 分钟 |
-| 最大等待 | 8 | 请求到接驾的分钟数 |
-| 前瞻窗口 | 30 | 分钟 |
-| 历史日数 | 10 | 独立生成的合成日 |
-| 场景数 | 3 | 每轮抽取历史日的数量 |
-| weight | 3 | 每个额外潜在服务机会折算的接驾分钟数 |
+Use Python 3.10 or newer. Run these commands from the repository directory. No API key is required.
 
-## 如何看结果
+```sh
+python -m pip install -r requirements-real.txt
+python simulator.py --self-test
+python -m unittest discover -s tests -v
+python pipeline.py download
+python pipeline.py prepare
+python pipeline.py smoke
+python pipeline.py validate
+python pipeline.py test
+python pipeline.py report
+```
 
-`service_rate` 越高表示服务订单比例越高；`mean_wait_min` 和 `p90_wait_min` 只针对已服务乘客，不能脱离服务率解释。`idle_share`、`pickup_share`、`passenger_share` 在固定 `[0,T)` 窗口内统计，三者相加为 1。`mean_pickup_min` 是接驾时间，不是空驶公里数。
+`smoke` is a small execution check, not the final evaluation. Alternatively, `python pipeline.py all` runs download, preparation, validation, testing, and reporting. New experiment runs receive separate directories. Configuration and implementation fingerprints protect against reusing incompatible validation selections.
 
-`mean_decision_ms` 与 `max_decision_ms` 包含当前策略计算时间（包括前瞻场景查询）。只统计有待服务订单且有空闲车的决策轮。`drain_end_min` 为所有测试订单完成或过期后的模拟结束时刻；它不作为车队时间占比的分母。
+For the waiting-limit sensitivity analysis, after preparing the primary data:
 
-首次交付的默认演示中，两策略服务与等待结果相同，前瞻计算更慢。这是允许的结果，不是成功判据失败。手工测试另外验证了前瞻确实能够在合适场景改变派单。
+```sh
+python sensitivity.py
+```
 
-## 范围与正式实验前的工作
+This reuses the same prepared inputs. Do not change the waiting limit and re-prepare data to reproduce this analysis, since preparation also uses the waiting limit to define its historical travel-data window.
 
-- 当前仅支持合成数据。没有下载、清理真实订单，也没有验证集调参。
-- 行程时间为固定区域表，同区不为零；接口保留了出发时间，后续可接时间分段表。
-- 仿真中的司机轨迹完全由实际分配产生，不重放外部司机完单事件。
-- 历史场景对象只接收历史日；当前决策函数不接收整个测试请求流。
-- 辅助匹配一次看完整个抽样场景，属于偏乐观的服务机会代理；“一车只看下一单”又省略了后续循环服务，因此它既不是实际吞吐量预测，也不是严格的上下界。
-- 前瞻计分暂不纳入本轮未匹配的已知积压订单；它们仍留在实际模拟队列中。必须在结果解释中承认这个近似。
-- 局部搜索不更换基线选择的订单子集，只调整司机。大规模实例可能需要高效求解器，但不应先扩展模型。
-- 正式实验下一步：选择公开数据与请求时间解释，固定空间范围和时间切分，在验证期选参数，在多个未参与调参的测试日上做配对比较。
+The original monthly Parquet is stored with **Git LFS**. After cloning, use `git lfs install` and `git lfs pull` to retrieve it, or use the download step to obtain the official source. Allow several GB of free disk space. Repository access is required while this project is private.
 
-基线文献：Qin et al. (2020), Ride-Hailing Order Dispatching at DiDi via Reinforcement Learning, https://doi.org/10.1287/inte.2020.1047。
+## Repository guide
+
+| Path | Purpose |
+| --- | --- |
+| `pipeline.py` | Real-data experiment entry point |
+| `experiment_config.json` | Data split and experiment parameters |
+| `real_experiment/` | Downloading, preparation, policy evaluation, and reporting |
+| `simulator.py` | Core simulator and original synthetic demonstration |
+| `sensitivity.py` | Waiting-limit sensitivity experiment |
+| `tests/` | Data isolation, solver, and pipeline checks |
+| `data/raw/` | Official source files and provenance |
+| `data/processed/` | Retained requests, historical estimates, and audit reports |
+| `results_real/` | Validation selections, test metrics, and detailed logs |
+| `README_REAL_CN.md` | Detailed Chinese execution guide |
+| `README_SYNTHETIC_CN.md` | Archived Chinese synthetic-demo instructions |
+| `VERIFICATION_REAL.md` | Historical verification record from initial delivery |
+
+The repository retains early synthetic outputs, smoke checks, and multiple run directories for traceability. They should not be pooled with the primary test results linked above. The project evolved from synthetic checks to recorded demand and historical travel estimates, followed by validation-selected testing and exploratory sensitivity analysis.
+
+## Interpretation and limitations
+
+TLC records cover recorded trips, not all unsuccessful demand or complete driver online trajectories. Fleet sizes and initial locations are simulation assumptions. Geographic filtering and sampling change supply–demand competition. Zone-level median travel times omit within-zone variation and congestion dynamics. Lookahead omits current unassigned backlog from future scenarios and considers only one subsequent service per driver. These simplifications support a controlled comparison, but limit transfer to operational Uber dispatch.
